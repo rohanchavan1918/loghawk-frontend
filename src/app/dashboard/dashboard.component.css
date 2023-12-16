@@ -7,7 +7,7 @@
     box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
 }
 .l-bg-cherry {
-    background: linear-gradient(to right, #493240, #f09) !important;
+    background: linear-gradient(to right,#3ec1c74d,#3ec1c7)!important;
     color: #fff;
 }
 
