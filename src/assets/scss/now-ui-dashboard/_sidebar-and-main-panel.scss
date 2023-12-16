@@ -308,18 +308,18 @@
 }
 .sidebar[data-color="red"]:after,
 .off-canvas-sidebar[data-color="red"]:after {
-  background: #3ec1c7;
+  background: #1f2335;
 }
 
 .sidebar[data-color="red"] .nav li.active>a,
 .off-canvas-sidebar[data-color="red"] .nav li.active>a {
-  color: #3ec1c7;
+  color: #000;
   font-weight: bold;
 }
 
 .sidebar[data-color="red"] .nav li.active>a i,
 .off-canvas-sidebar[data-color="red"] .nav li.active>a i {
-  color: #3ec1c7;
+  color: #000;
 }
 
 .main-panel{
