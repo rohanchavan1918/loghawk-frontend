@@ -9,6 +9,7 @@ import { ApiServicesService } from '../services/api-services.service';
 export class TableListComponent implements OnInit {
 
   tagsData: any[] = [];
+  tagRules: any[] = [];
   constructor(private apiService: ApiServicesService) { }
 
 

@@ -48,11 +48,13 @@
                   </td>
                   <td>
                     <div class="d-flex align-items-center">
-                      <button type="button" class="btn btn-primary btn-sm mr-1" [routerLink]="['/tags-form',eachItem?.ID]"> <i class="fa fa-pencil" aria-hidden="true"></i></button>
+                      <button type="button" (click)="tagRules = eachItem?.tag_rules" class="btn btn-success btn-sm ml-1"  data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-primary btn-sm mr-1 ml-1" [routerLink]="['/tags-form',eachItem?.ID]"> <i class="fa fa-pencil" aria-hidden="true"></i></button>
                       <button type="button" class="btn btn-danger btn-sm ml-1" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                   </td>
                 </tr>
+                
               </tbody>
             </table>
           </div>
@@ -68,7 +70,7 @@
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">View Tag</h5>
+        <h5 class="modal-title">Tag Rules</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -78,144 +80,45 @@
           <table class="table">
             <thead>
               <th>
-                ID
+                Match Type
               </th>
               <th>
-                Tag
+                Match Value
               </th>
               <th>
-                SlackUrl
+                Priority
               </th>
-              <th>
+              <!-- <th>
                 Description 
-              </th>
-              <th>
+              </th> -->
+              <!-- <th>
                 Action
-              </th>
+              </th> -->
             </thead>
             <tbody>
-             
-              <tr>
+              <tr *ngFor="let eachItem of tagRules">
                 <td>
-                  11
+                  {{eachItem?.match_type || '-'}}
                 </td>
                 <td>
-                  Niger
+                  {{eachItem?.match_value || '-'}}
                 </td>
                 <td>
-                  Oud-Turnhout
+                  {{eachItem?.priority || '-'}}
                 </td>
-                <td>
+                <!-- <td>
                   $36,738
-                </td>
-                <td>
+                </td> -->
+                <!-- <td>
                   <div class="d-flex align-items-center">
                     <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                     <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
-                </td>
+                </td> -->
               </tr>
-              <tr>
-                <td>
-                  11
-                </td>
-                <td>
-                  Niger
-                </td>
-                <td>
-                  Oud-Turnhout
-                </td>
-                <td>
-                  $36,738
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                  </div>
-                </td>
+              <tr *ngIf="tagRules?.length == 0">
+                <td colspan="4"><h1>No Data Found</h1></td>
               </tr>
-              <tr>
-                <td>
-                  11
-                </td>
-                <td>
-                  Niger
-                </td>
-                <td>
-                  Oud-Turnhout
-                </td>
-                <td>
-                  $36,738
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  11
-                </td>
-                <td>
-                  Niger
-                </td>
-                <td>
-                  Oud-Turnhout
-                </td>
-                <td>
-                  $36,738
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  11
-                </td>
-                <td>
-                  Niger
-                </td>
-                <td>
-                  Oud-Turnhout
-                </td>
-                <td>
-                  $36,738
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  11
-                </td>
-                <td>
-                  Niger
-                </td>
-                <td>
-                  Oud-Turnhout
-                </td>
-                <td>
-                  $36,738
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                  </div>
-                </td>
-              </tr>
-            
             </tbody>
           </table>
         </div>
