@@ -75,6 +75,7 @@
         width: 100%;
         padding-top: 10px;
         z-index: 1029;
+        background-color: #000;
     }
 
     .documentation &{
@@ -251,7 +252,30 @@
         }
     }
 }
-
+.btn-primary {
+    background-color: #3ec1c7;
+}
+.btn-login{
+    background-color: #3ec1c7;  
+}
+.btn-login:focus,
+.btn-login:hover{
+    border-color:#3ec1c7 ;
+    background-color: #3ec1c7 !important;
+}
+.btn-primary:hover{
+    background-color: #3ec1c7;
+}
+.btn-login:not(:disabled):not(.disabled):active{
+    background-color: #3ec1c7;
+}
+.form-control:focus{
+    border-color:#3ec1c7 ;
+    background-color: #3ec1c7 !important;
+}
+.btn-primary:not(:disabled):not(.disabled):active{
+    background-color: #3ec1c7 !important;
+}
 .bg-default{
     background-color: $default-color !important;
 }
