@@ -7,30 +7,36 @@
           <h5 class="title">Add Tag</h5>
         </div>
         <div class="card-body">
-          <form>
+          <form #tagsForm="ngForm" (ngSubmit)="onSubmitForm(tagsForm)">
             
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" class="form-control" placeholder="Name" required ngModel name="name">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
                   <label>Tag</label>
-                  <input type="text" class="form-control" placeholder="Tag" >
+                  <input type="text" class="form-control" placeholder="Tag" required ngModel name="Tag">
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label>SlackUrl</label>
-                  <input type="text" class="form-control" placeholder="SlackUrl">
+                  <input type="text" class="form-control" placeholder="SlackUrl" required ngModel name="SlackUrl">
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Description</label>
-                  <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description"></textarea>
+                  <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" required ngModel name="description"></textarea>
                 </div>
               </div>
               <div class="col-md-12 my-4">
                 <div class="form-group text-center mb-0">
-                    <button type="button" class="btn btn-submit">Submit</button>
+                    <button type="button" type="submit" class="btn btn-submit">Submit</button>
                 </div>
               </div>
             </div>
