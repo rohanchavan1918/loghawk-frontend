@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { ApiServicesService } from '../services/api-services.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -57,10 +58,10 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  logoWidth: number = 0
+  logoWidth: number = 0;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {  
     var refreshIntervalId = setInterval(() => {
       this.logoWidth = this.logoWidth + 10;
       this.logoWidth > 100 ? clearInterval(refreshIntervalId) : '';

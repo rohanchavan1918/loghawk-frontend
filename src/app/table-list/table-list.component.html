@@ -4,41 +4,47 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Simple Table</h4>
+          <h4 class="card-title">Tags</h4>
+          <!-- {{tagsData  | json
+          }} -->
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
             <table class="table">
               <thead>
+                <th >
+                  Name
+                </th>
                 <th>
-                  ID
+                  Description
                 </th>
                 <th>
                   Tag
                 </th>
                 <th>
-                  SlackUrl
-                </th>
-                <th>
-                  Description 
+                 Slack Url 
                 </th>
                 <th>
                   Action
                 </th>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let eachItem of tagsData">
                   <td>
-                    11
+                    {{eachItem?.Name || '-'}}
                   </td>
                   <td>
-                    Niger
+                    <span class="text-ellipsis">  {{eachItem?.description || '-'}}</span>
                   </td>
                   <td>
-                    Oud-Turnhout
+                    {{eachItem?.tag || '-'}}
                   </td>
                   <td>
-                    $36,738
+                    <div class="d-flex align-items-center">
+                        <span class="text-ellipsis" title="{{eachItem?.slack_url || '-'}}" >  {{eachItem?.slack_url || '-'}} </span>
+                        <a href="javascript:void(0)" ><i class="fa fa-clone ml-2" aria-hidden="true"></i></a>
+                    </div>
+                   
                   </td>
                   <td>
                     <div class="d-flex align-items-center">
@@ -47,49 +53,6 @@
                     </div>
                   </td>
                 </tr>
-
-                <tr>
-                  <td>
-                    11
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td>
-                    $36,738
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                      <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>
-                    11
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
-                  <td>
-                    $36,738
-                  </td>
-                  <td>
-                    <div class="d-flex align-items-center">
-                      <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                      <button type="button" class="btn btn-danger btn-sm ml-1" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                    </div>
-                  </td>
-                </tr>
-              
               </tbody>
             </table>
           </div>

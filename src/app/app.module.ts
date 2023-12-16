@@ -13,8 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
-// import { DataTablesModule } from "angular-datatables";
-
+import { AuthGuard } from './services/auth/auth.guard';
 
 @NgModule({
   imports: [
@@ -26,14 +25,13 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     NgbModule,
     ToastrModule.forRoot(),
-    // DataTablesModule
   ],
   declarations: [	
     AppComponent,
     AdminLayoutComponent,
       LoginComponent
    ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

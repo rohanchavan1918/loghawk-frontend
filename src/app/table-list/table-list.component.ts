@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServicesService } from '../services/api-services.service';
 
 @Component({
   selector: 'app-table-list',
@@ -7,15 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableListComponent implements OnInit {
 
-  // dtOptions: DataTables.Settings = {};
+  tagsData: any[] = [];
+  constructor(private apiService: ApiServicesService) { }
 
-  constructor() { }
 
-  
-  ngOnInit(): void {
-    // this.dtOptions = {
-    //   ajax: 'data/data.json',
- 
-    // };
+  ngOnInit() {
+    this.apiService.getNews().subscribe((data:any [])=>{
+      console.log(data);
+      this.tagsData = data;
+      // this.articles = data['articles'];
+    });
   }
+
 }
