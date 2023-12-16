@@ -11,6 +11,7 @@ export class TableListComponent implements OnInit {
   tagsData: any[] = [];
   constructor(private apiService: ApiServicesService) { }
 
+
   ngOnInit() {
     this.apiService.getAllTags().subscribe((data:any [])=>{
       console.log(data);

@@ -34,23 +34,227 @@
                     {{eachItem?.Name || '-'}}
                   </td>
                   <td>
-                    {{eachItem?.description || '-'}}
+                    <span class="text-ellipsis">  {{eachItem?.description || '-'}}</span>
                   </td>
                   <td>
                     {{eachItem?.tag || '-'}}
                   </td>
                   <td>
-                    {{eachItem?.slack_url || '-'}}
+                    <div class="d-flex align-items-center">
+                        <span class="text-ellipsis" title="{{eachItem?.slack_url || '-'}}" >  {{eachItem?.slack_url || '-'}} </span>
+                        <a href="javascript:void(0)" ><i class="fa fa-clone ml-2" aria-hidden="true"></i></a>
+                    </div>
+                   
                   </td>
                   <td>
                     <div class="d-flex align-items-center">
                       <button type="button" class="btn btn-primary btn-sm mr-1" [routerLink]="['/tags-form',eachItem?.ID]"> <i class="fa fa-pencil" aria-hidden="true"></i></button>
-                      <button type="button" class="btn btn-danger btn-sm ml-1" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm ml-1" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                   </td>
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">View Tag</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <th>
+                ID
+              </th>
+              <th>
+                Tag
+              </th>
+              <th>
+                SlackUrl
+              </th>
+              <th>
+                Description 
+              </th>
+              <th>
+                Action
+              </th>
+            </thead>
+            <tbody>
+             
+              <tr>
+                <td>
+                  11
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td>
+                  $36,738
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  11
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td>
+                  $36,738
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  11
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td>
+                  $36,738
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  11
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td>
+                  $36,738
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  11
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td>
+                  $36,738
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  11
+                </td>
+                <td>
+                  Niger
+                </td>
+                <td>
+                  Oud-Turnhout
+                </td>
+                <td>
+                  $36,738
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                  </div>
+                </td>
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+
+        <div class="form p-3">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>SlackUrl</label>
+                <input type="text" class="form-control" placeholder="SlackUrl" required ngModel name="SlackUrl">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Match Type</label>
+                <select class="form-control">
+                  <option>Match Type</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Priority</label>
+                <select class="form-control">
+                  <option>Priority</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Match Value</label>
+                <input type="text" class="form-control" placeholder="Match Value" required name="match_value">
+              </div>
+            </div>
+            <div class="col-md-12 mt-4">
+              <div class="form-group">
+                <button type="button" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

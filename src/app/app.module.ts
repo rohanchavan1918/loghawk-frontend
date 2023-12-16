@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './services/auth/auth.guard';
+import {  } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -24,7 +25,9 @@ import { AuthGuard } from './services/auth/auth.guard';
     RouterModule,
     AppRoutingModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ToastrModule
+    
   ],
   declarations: [	
     AppComponent,

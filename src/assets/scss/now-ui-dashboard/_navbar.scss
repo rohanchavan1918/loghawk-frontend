@@ -319,3 +319,19 @@
 .bg-white{
     background-color: $white-color !important;
 }
+
+.close{
+    opacity: 1 !important;
+}
+.modal-title{
+    font-weight: bold;
+    font-size: 18px;
+}
+.text-ellipsis{
+    white-space: nowrap;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+
+}
