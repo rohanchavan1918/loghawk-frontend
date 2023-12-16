@@ -57,9 +57,17 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
+  logoWidth: number = 0
   constructor() { }
 
   ngOnInit() {
+    var refreshIntervalId = setInterval(() => {
+      this.logoWidth = this.logoWidth + 10;
+      this.logoWidth > 100 ? clearInterval(refreshIntervalId) : '';
+      console.log(this.logoWidth);
+      
+    }, 3000);
+
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");
@@ -84,6 +92,42 @@ export class DashboardComponent implements OnInit {
 
           borderWidth: 2,
           data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
+        },
+        {
+          label: "Raja",
+
+          pointBorderWidth: 1,
+          pointHoverRadius: 7,
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          fill: true,
+
+          borderWidth: 2,
+          data: [90, 150, 190,50, 150, 100 ,130,  160,140, 190, 120, 140, 190, 95]
+        },
+        {
+          label: "Ganman",
+
+          pointBorderWidth: 1,
+          pointHoverRadius: 7,
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          fill: true,
+
+          borderWidth: 2,
+          data: [ 160, 120,  150, 100, 190, 130, 90, 150, 140, 190, 95, 50]
+        },
+        {
+          label: "vikas",
+
+          pointBorderWidth: 3,
+          pointHoverRadius: 7,
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          fill: true,
+
+          borderWidth: 2,
+          data: [ 90, 45,  124, 34, 89, 124, 90, 93, 140, 345, 90, 22]
         }
       ];
       this.lineBigDashboardChartColors = [
