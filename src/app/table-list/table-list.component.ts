@@ -9,11 +9,12 @@ import { ApiServicesService } from '../services/api-services.service';
 export class TableListComponent implements OnInit {
 
   tagsData: any[] = [];
+  tagRules: any[] = [];
   constructor(private apiService: ApiServicesService) { }
 
 
   ngOnInit() {
-    this.apiService.getNews().subscribe((data:any [])=>{
+    this.apiService.getAllTags().subscribe((data:any [])=>{
       console.log(data);
       this.tagsData = data;
       // this.articles = data['articles'];
