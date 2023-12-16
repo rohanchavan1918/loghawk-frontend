@@ -10,7 +10,7 @@
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
-            <table class="table">
+            <table datatable class="table">
               <thead>
                 <th >
                   Name
@@ -50,7 +50,7 @@
                     <div class="d-flex align-items-center">
                       <button type="button" (click)="tagRules = eachItem?.tag_rules; tagId = eachItem?.ID" class="btn btn-success btn-sm ml-1"  data-toggle="modal" data-target="#exampleModal"><i class="fa fa-eye" aria-hidden="true"></i></button>
                       <button type="button" class="btn btn-primary btn-sm mr-1 ml-1" [routerLink]="['/tags-form',eachItem?.ID]"> <i class="fa fa-pencil" aria-hidden="true"></i></button>
-                      <button type="button" class="btn btn-danger btn-sm ml-1" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                      <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                   </td>
                 </tr>
@@ -70,8 +70,11 @@
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Tag Rules</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="d-flex w-100 align-items-center justify-content-between">
+          <h5 class="modal-title">Tag Rules</h5>
+          <button type="button" class="btn btn-primary">Add Rule</button>
+        </div>
+        <button type="button" class="close2" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -111,7 +114,7 @@
                 </td> -->
                 <!-- <td>
                   <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="button" class="btn btn-primary btn-sm ml-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                     <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
                 </td> -->
@@ -148,7 +151,7 @@
               </div>
             </div>
             <div class="col-md-12 mt-4">
-              <div class="form-group">
+              <div class="form-group  text-center">
                 <button type="button" (click)="submitMatchTypeForm()" class="btn btn-primary">Submit</button>
               </div>
             </div>
