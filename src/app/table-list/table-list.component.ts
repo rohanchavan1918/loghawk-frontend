@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableListComponent implements OnInit {
 
+  // dtOptions: DataTables.Settings = {};
+
   constructor() { }
 
-  ngOnInit() {
+  
+  ngOnInit(): void {
+    // this.dtOptions = {
+    //   ajax: 'data/data.json',
+ 
+    // };
   }
-
 }

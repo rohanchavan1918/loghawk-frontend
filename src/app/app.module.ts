@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
+// import { DataTablesModule } from "angular-datatables";
+
 
 @NgModule({
   imports: [
@@ -23,7 +25,8 @@ import { LoginComponent } from './login/login.component';
     RouterModule,
     AppRoutingModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    // DataTablesModule
   ],
   declarations: [	
     AppComponent,
