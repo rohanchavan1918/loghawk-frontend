@@ -255,23 +255,39 @@
 .btn-primary {
     background-color: #3ec1c7;
 }
-.btn-login{
+.btn-primary:focus{
+    background-color: #3ec1c7;
+}
+.btn-submit{
+    max-width: 120px;
+    width: 100%;
+}
+.card label{
+    color: #000 !important;
+    font-weight: bold !important;
+}
+.btn-login,
+.btn-submit{
     background-color: #3ec1c7;  
 }
 .btn-login:focus,
-.btn-login:hover{
+.btn-submit:focus{
+    border-color:#3ec1c7;
+}
+.btn-login:hover,
+.btn-submit:hover{
     border-color:#3ec1c7 ;
     background-color: #3ec1c7 !important;
 }
 .btn-primary:hover{
     background-color: #3ec1c7;
 }
-.btn-login:not(:disabled):not(.disabled):active{
+.btn-login:not(:disabled):not(.disabled):active,
+.btn-submit:not(:disabled):not(.disabled):active{
     background-color: #3ec1c7;
 }
 .form-control:focus{
     border-color:#3ec1c7 ;
-    background-color: #3ec1c7 !important;
 }
 .btn-primary:not(:disabled):not(.disabled):active{
     background-color: #3ec1c7 !important;
