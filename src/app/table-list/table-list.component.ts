@@ -12,7 +12,7 @@ export class TableListComponent implements OnInit {
   constructor(private apiService: ApiServicesService) { }
 
   ngOnInit() {
-    this.apiService.getNews().subscribe((data:any [])=>{
+    this.apiService.getAllTags().subscribe((data:any [])=>{
       console.log(data);
       this.tagsData = data;
       // this.articles = data['articles'];

@@ -12,13 +12,22 @@ export class ApiServicesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getNews(){
+  public getAllTags(){
     return this.httpClient.get(this.baseURL + 'tags');
+  }
+
+  public getTagById(Id: number){
+    return this.httpClient.get(this.baseURL + 'tags/' + Id);
   }
 
   public saveTags(tags: Tags): Observable<any> {
     const url = this.baseURL + 'tags';
     return this.httpClient.post<any>(url, tags);
+  }
+
+  public updateTags(tags: Tags, id: number): Observable<any> {
+    const url = this.baseURL + 'tags/'+ id;
+    return this.httpClient.put<any>(url, tags);
   }
 }
 
