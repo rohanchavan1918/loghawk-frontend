@@ -14,6 +14,7 @@ export class TableListComponent implements OnInit {
   tagRules: any[] = [];
   addTagRuleForm: FormGroup;
   tagId: number;
+  showForm: boolean = false;
 
   public TestEnum = MatchType;
 

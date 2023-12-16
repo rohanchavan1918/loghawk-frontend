@@ -3,10 +3,11 @@
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header">
+        <div class="card-header d-flex align-items-center justify-content-between">
           <h4 class="card-title">Tags</h4>
           <!-- {{tagsData  | json
           }} -->
+          <button type="button" class="btn btn-primary">Add</button>
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
@@ -72,14 +73,14 @@
       <div class="modal-header">
         <div class="d-flex w-100 align-items-center justify-content-between">
           <h5 class="modal-title">Tag Rules</h5>
-          <button type="button" class="btn btn-primary">Add Rule</button>
+          <button type="button" (click)="showForm = !showForm" class="btn btn-primary">{{!showForm ? 'Add Rule' : 'Back' }}</button>
         </div>
         <button type="button" class="close2" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body p-0">
-        <div class="table-responsive">
+        <div *ngIf="!showForm" class="table-responsive">
           <table class="table">
             <thead>
               <th>
@@ -126,7 +127,7 @@
           </table>
         </div>
 
-        <div class="form p-3" [formGroup]="addTagRuleForm">
+        <div *ngIf="showForm" class="form p-3" [formGroup]="addTagRuleForm">
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
