@@ -29,6 +29,11 @@ export class ApiServicesService {
     const url = this.baseURL + 'tags/'+ id;
     return this.httpClient.put<any>(url, tags);
   }
+
+  public addTagRules(tags: tagRules): Observable<any> {
+    const url = this.baseURL + 'tag-rules';
+    return this.httpClient.post<any>(url, tags);
+  }
 }
 
 export class Tags {
@@ -36,4 +41,11 @@ export class Tags {
   description: string;
   slack_url: string;
   tag: string;
+}
+
+export class tagRules {
+  match_type: string;
+  match_value: string;
+  priority: number;
+  tag_id: number;
 }
