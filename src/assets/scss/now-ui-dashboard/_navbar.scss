@@ -320,8 +320,23 @@
     background-color: $white-color !important;
 }
 
-.close{
+.close2{
     opacity: 1 !important;
+    position: absolute;
+    right: -12px;
+    top: -15px;
+    width: 35px;
+    height: 35px;
+    background: #000000db;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    color: #fff;
+    outline: none;
+    border-color: #000;
+    font-size: 24px;
 }
 .modal-title{
     font-weight: bold;
@@ -334,4 +349,12 @@
     text-overflow: ellipsis;
     display: block;
 
+}
+
+select.form-control{
+    appearance: none;
+    background-image: url("../../img/drop-down.png");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
 }

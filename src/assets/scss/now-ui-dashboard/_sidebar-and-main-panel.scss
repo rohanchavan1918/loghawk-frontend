@@ -208,9 +208,10 @@
             content: '';
             position: absolute;
             bottom: 0;
-            right: 15px;
+            right: 0;
             height: 1px;
-            width: calc(100% - 30px);
+            // width: calc(100% - 30px);
+            width: 100%;
             background-color: $opacity-5;
 
         }
