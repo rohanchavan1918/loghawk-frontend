@@ -1,46 +1,40 @@
-
 <div class="main-content">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="card-header row d-flex align-items-center justify-content-between">
+         <div class="col-8">
           <h4 class="card-title">Log List</h4>
-          <!-- <button type="button" [routerLink]="['/tags-form']" class="btn btn-primary">Add</button> -->
+         </div>
+         <div class="col-4">
+          <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search"/>
+          </div>
         </div>
         <div class="card-body p-0">
           <div class="table-responsive">
-            <table  class="table">
+            <table datatable class="table">
               <thead>
                 <th >
                   Name
                 </th>
                 <th>
-                  Description
+                  Message
                 </th>
                 <th>
-                  Tag
+                  Created At
                 </th>
-                <th>
-                 Slack Url 
-                </th>
-               
               </thead>
-
               <tbody>
-                <tr>
+                <tr *ngFor="let eachItem of statsData | searchPipe: searchText">
                   <td >
-                    Name
+                    {{eachItem?.Tag?.Name}}
                   </td>
-                  <td>
-                    Description
+                  <td >
+                    {{eachItem?.msg}}
                   </td>
-                  <td>
-                    Tag
+                  <td >
+                    {{eachItem?.CreatedAt}}
                   </td>
-                  <td>
-                   Slack Url 
-                  </td>
-                  
                 </tr>
               </tbody>
             </table>

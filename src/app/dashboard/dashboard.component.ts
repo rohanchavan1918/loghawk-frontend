@@ -59,7 +59,9 @@ export class DashboardComponent implements OnInit {
     }
   }
   logoWidth: number = 0;
-  constructor() { }
+  constructor(
+    private apiService: ApiServicesService,
+  ) { }
 
   ngOnInit() {  
     var refreshIntervalId = setInterval(() => {
@@ -83,7 +85,7 @@ export class DashboardComponent implements OnInit {
 
     this.lineBigDashboardChartData = [
         {
-          label: "Data",
+          label: "Log-Aggregator",
 
           pointBorderWidth: 1,
           pointHoverRadius: 7,
@@ -95,7 +97,7 @@ export class DashboardComponent implements OnInit {
           data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
         },
         {
-          label: "Raja",
+          label: "Summarizer",
 
           pointBorderWidth: 1,
           pointHoverRadius: 7,
@@ -104,10 +106,10 @@ export class DashboardComponent implements OnInit {
           fill: true,
 
           borderWidth: 2,
-          data: [90, 150, 190,50, 150, 100 ,130,  160,140, 190, 120, 140, 190, 95]
+          data: [212, 210, 199,205, 97, 82 ,94,  160,140, 215, 221, 245]
         },
         {
-          label: "Ganman",
+          label: "Audience-Selector",
 
           pointBorderWidth: 1,
           pointHoverRadius: 7,
@@ -119,7 +121,7 @@ export class DashboardComponent implements OnInit {
           data: [ 160, 120,  150, 100, 190, 130, 90, 150, 140, 190, 95, 50]
         },
         {
-          label: "vikas",
+          label:  "Route-Manager",
 
           pointBorderWidth: 3,
           pointHoverRadius: 7,
@@ -129,6 +131,19 @@ export class DashboardComponent implements OnInit {
 
           borderWidth: 2,
           data: [ 90, 45,  124, 34, 89, 124, 90, 93, 140, 345, 90, 22]
+        }, 
+        {
+          
+          label: "Kafka-Writer",
+
+          pointBorderWidth: 3,
+          pointHoverRadius: 7,
+          pointHoverBorderWidth: 2,
+          pointRadius: 5,
+          fill: true,
+
+          borderWidth: 2,
+          data: [124, 34,  124, 90, 45, 89, 90, 93, 69, 345, 69, 22]
         }
       ];
       this.lineBigDashboardChartColors = [
@@ -141,7 +156,11 @@ export class DashboardComponent implements OnInit {
          pointHoverBorderColor: this.chartColor,
        }
      ];
-    this.lineBigDashboardChartLabels = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    this.lineBigDashboardChartLabels = this.getLast12Hours();
+      
+    // let date = new Date();
+
+    // console.log(this.formatDate(date))
     this.lineBigDashboardChartOptions = {
 
           layout: {
@@ -395,7 +414,7 @@ export class DashboardComponent implements OnInit {
           pointRadius: 4,
           fill: true,
           borderWidth: 1,
-          data: [80, 99, 86, 96, 123, 85, 100, 75, 88, 90, 123, 155]
+            
         }
       ];
     this.lineChartGradientsNumbersColors = [
@@ -456,5 +475,48 @@ export class DashboardComponent implements OnInit {
       }
 
     this.lineChartGradientsNumbersType = 'bar';
+
+    this.getAllStats()
+    this.getAllLogs()
+  }
+  getLast12Hours(): string[] {
+    const currentDate = new Date();
+    const last12Hours: string[] = [];
+
+    for (let i = 1; i <= 12; i++) {
+        const twelveHoursAgo = new Date(currentDate.getTime() - i * 60 * 60 * 1000);
+
+        const hours = twelveHoursAgo.getHours();
+        const ampm = hours >= 12 ? 'pm' : 'am';
+
+        const formattedTime = `${hours % 12 || 12}${ampm}`;
+        
+        last12Hours.push(formattedTime);
+    }
+
+    return last12Hours;
+  }
+
+  statsData: any = null;
+  logsData: any[] = null;
+  getAllStats() {
+    this.apiService.getStats().subscribe((data:any)=>{
+      console.log(data);
+      this.statsData = data;
+      // this.articles = data['articles'];
+    });
+  }
+
+  getAllLogs() {
+    this.apiService.getLogs()
+    .subscribe((data:any)=>{
+      console.log(data);
+      if (data?.length > 5) {
+        this.logsData = data.slice(0, 5);
+      } else {
+        this.logsData = data;
+      }
+      // this.articles = data['articles'];
+    });
   }
 }

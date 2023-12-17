@@ -36,7 +36,6 @@ export class TableListComponent implements OnInit {
     this.apiService.getAllTags().subscribe((data:any)=>{
       console.log(data);
       this.tagsData = data;
-      // this.articles = data['articles'];
     });
   }
 
@@ -45,8 +44,6 @@ export class TableListComponent implements OnInit {
       matchType: [null, Validators.required],
       matchValue: [null, Validators.required],
       priority: [null, Validators.required]
-      // Name: [null, [Validators.required, Validators.minLength(5)]],
-      // City: [null, [Validators.required, Validators.minLength(3)]],
     })
   }
 
@@ -116,6 +113,7 @@ export enum MatchType {
 	starts_with = "Starts With",
 	ends_with = "Ends With",
 	regex = "Regex",
+  custom = "Custom"
 }
 
 
