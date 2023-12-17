@@ -35,8 +35,8 @@
               </div>
               <div class="col-md-12 my-4">
                 <div class="form-group text-center mb-0">
-                    <button *ngIf="!tagID" (click)="onSubmitForm()"  type="button" type="submit" class="btn btn-submit">Submit</button>
-                    <button *ngIf="tagID" (click)="onUpdateForm()"  type="button" type="submit" class="btn btn-submit">Update</button>
+                    <button *ngIf="!tagID" [disabled]="addTagForm.invalid"  (click)="onSubmitForm()"  type="button" type="submit" class="btn btn-submit">Submit</button>
+                    <button *ngIf="tagID" [disabled]="addTagForm.invalid"  (click)="onUpdateForm()"  type="button" type="submit" class="btn btn-submit">Update</button>
                 </div>
               </div>
             </div>

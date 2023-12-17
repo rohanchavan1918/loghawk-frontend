@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServicesService } from '../services/api-services.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 // import { MatchType } from 'src/enum/matchType.enum';
 
 @Component({
@@ -20,13 +21,18 @@ export class TableListComponent implements OnInit {
 
   constructor(
     private apiService: ApiServicesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) { }
 
 
   ngOnInit() {
-    this.initializeForm()
-    this.apiService.getAllTags().subscribe((data:any [])=>{
+    this.initializeForm();
+    this.getAllTags()
+  }
+
+  getAllTags() {
+    this.apiService.getAllTags().subscribe((data:any)=>{
       console.log(data);
       this.tagsData = data;
       // this.articles = data['articles'];
@@ -58,8 +64,49 @@ export class TableListComponent implements OnInit {
     this.apiService.addTagRules(payload)
     .subscribe((response: any) => {
       console.log(response);
+      if (response.status == 200 ) {
+        this.toastr.success('Data Saved Successfully');
+        this.addTagRuleForm.reset()
+      } else {
+        this.toastr.error('Some Error Occured');
+      }
+    },err => {
+      //handle errors here
+      this.toastr.error(err);
     });
   }
+
+  deleteTag(id) {
+
+    this.apiService.deleteTagById(id)
+    .subscribe((response: any) => {
+      console.log(response);
+      if (response.status == 200 ) {
+        this.toastr.success('Data Deleted Successfully');
+        this.getAllTags()
+      } else {
+        this.toastr.error('Some Error Occured');
+      }
+    },err => {
+      //handle errors here
+      this.toastr.error(err);
+    });
+
+  }
+
+  copyText(val: string){
+    let selBox = document.createElement('textarea');
+      selBox.style.position = 'fixed';
+      selBox.style.left = '0';
+      selBox.style.top = '0';
+      selBox.style.opacity = '0';
+      selBox.value = val;
+      document.body.appendChild(selBox);
+      selBox.focus();
+      selBox.select();
+      document.execCommand('copy');
+      document.body.removeChild(selBox);
+    }
 
 }
 

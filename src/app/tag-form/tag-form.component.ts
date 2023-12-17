@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiServicesService } from '../services/api-services.service';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-tag-form',
+  templateUrl: './tag-form.component.html',
+  styleUrls: ['./tag-form.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class TagFormComponent implements OnInit {
 
   tagID: number = null;
   addTagForm: FormGroup;
@@ -18,6 +19,7 @@ export class UserProfileComponent implements OnInit {
     private apiService: ApiServicesService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit() {
@@ -73,6 +75,16 @@ export class UserProfileComponent implements OnInit {
     this.apiService.saveTags(payload)
     .subscribe((response: any) => {
       console.log(response);
+      console.log(response.status,'response.status');
+      if (response.status == 200 ) {
+        this.toastr.success('Data Saved Successfully');
+        this.addTagForm.reset()
+      } else {
+        this.toastr.error('Some Error Occured');
+      }
+    },err => {
+        //handle errors here
+        this.toastr.error(err);
     });
   }
 
@@ -91,6 +103,15 @@ export class UserProfileComponent implements OnInit {
     this.apiService.updateTags(payload, this.tagID)
     .subscribe((response: any) => {
       console.log(response);
+      if (response.status == 200 ) {
+        this.toastr.success('Data Saved Successfully');
+        this.addTagForm.reset()
+      } else {
+        this.toastr.error('Some Error Occured');
+      }
+    },err => {
+      //handle errors here
+      this.toastr.error(err);
     });
   }
 }

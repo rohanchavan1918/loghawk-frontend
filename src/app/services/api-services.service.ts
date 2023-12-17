@@ -22,17 +22,22 @@ export class ApiServicesService {
 
   public saveTags(tags: Tags): Observable<any> {
     const url = this.baseURL + 'tags';
-    return this.httpClient.post<any>(url, tags);
+    return this.httpClient.post<any>(url, tags,{ observe: 'response' });
   }
 
   public updateTags(tags: Tags, id: number): Observable<any> {
     const url = this.baseURL + 'tags/'+ id;
-    return this.httpClient.put<any>(url, tags);
+    return this.httpClient.put<any>(url, tags,{ observe: 'response' });
+  }
+
+  public deleteTagById( id: number): Observable<any> {
+    const url = this.baseURL + 'tags/'+ id;
+    return this.httpClient.delete<any>(url, { observe: 'response' });
   }
 
   public addTagRules(tags: tagRules): Observable<any> {
     const url = this.baseURL + 'tag-rules';
-    return this.httpClient.post<any>(url, tags);
+    return this.httpClient.post<any>(url, tags,{ observe: 'response' });
   }
 }
 
