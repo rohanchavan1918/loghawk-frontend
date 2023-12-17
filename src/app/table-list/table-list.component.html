@@ -92,12 +92,9 @@
               <th>
                 Priority
               </th>
-              <!-- <th>
-                Description 
-              </th> -->
-              <!-- <th>
+              <th>
                 Action
-              </th> -->
+              </th>
             </thead>
             <tbody>
               <tr *ngFor="let eachItem of tagRules">
@@ -110,15 +107,12 @@
                 <td>
                   {{eachItem?.priority || '-'}}
                 </td>
-                <!-- <td>
-                  $36,738
-                </td> -->
-                <!-- <td>
+                <td>
                   <div class="d-flex align-items-center">
-                    <button type="button" class="btn btn-primary btn-sm ml-1"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <!-- <button  type="button" class="btn btn-primary btn-sm ml-1"><i class="fa fa-pencil" aria-hidden="true"></i></button> -->
                     <button type="button" class="btn btn-danger btn-sm ml-1"><i class="fa fa-trash" aria-hidden="true"></i></button>
                   </div>
-                </td> -->
+                </td>
               </tr>
               <tr *ngIf="tagRules?.length == 0">
                 <td colspan="4"><h1>No Data Found</h1></td>
@@ -137,17 +131,23 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-12">
+            <div *ngIf="addTagRuleForm.controls['matchType'].value != 'custom'" class="col-md-12">
               <div class="form-group">
                 <label>Match Value</label>
                 <input formControlName="matchValue" type="text" class="form-control" placeholder="Match Value" required name="match_value">
               </div>
             </div>
-            <div class="col-md-12">
+            <div *ngIf="addTagRuleForm.controls['matchType'].value == 'custom'" class="col-md-12">
+              <div class="form-group">
+                <label>Match Value</label>
+                <textarea rows="4" cols="80" class="form-control" placeholder="Match Value" formControlName="matchValue"></textarea>
+              </div>
+            </div>
+            <div  class="col-md-12">
               <div class="form-group">
                 <label>Priority</label>
                 <select formControlName="priority" class="form-control">
-                  <option *ngFor="let eachPriority of [].constructor(10); let i = index" [value]="i">{{i}}</option>
+                  <option *ngFor="let eachPriority of [].constructor(10); let i = index" [value]="i+1">{{i+1}}</option>
                 </select>
               </div>
             </div>

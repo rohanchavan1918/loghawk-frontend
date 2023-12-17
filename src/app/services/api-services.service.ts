@@ -39,6 +39,14 @@ export class ApiServicesService {
     const url = this.baseURL + 'tag-rules';
     return this.httpClient.post<any>(url, tags,{ observe: 'response' });
   }
+  
+  public getStats(): Observable<any> {
+    return this.httpClient.get(this.baseURL+ 'stats');
+  }
+   
+  public getLogs(): Observable<any> {
+    return this.httpClient.get(this.baseURL+ 'logs');
+  }
 }
 
 export class Tags {

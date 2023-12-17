@@ -14,7 +14,8 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './services/auth/auth.guard';
-import { LogListComponent } from './Log-List/Log-List.component';
+import { SearchPipePipe } from './services/searchPipe.pipe';
+
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { LogListComponent } from './Log-List/Log-List.component';
   declarations: [		
     AppComponent,
     AdminLayoutComponent,
-      LoginComponent,
+    LoginComponent,
+    // SearchPipePipe
    ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

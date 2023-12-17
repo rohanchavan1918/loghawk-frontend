@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServicesService } from '../services/api-services.service';
 
 @Component({
   selector: 'app-Log-List',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogListComponent implements OnInit {
 
-  constructor() { }
+  statsData: any[] = null;
+  searchText: string = ''
+  constructor(
+    private apiService: ApiServicesService
+  ) { }
 
   ngOnInit() {
+    this.getAllLogs()
   }
 
+  getAllLogs() {
+    this.apiService.getLogs()
+    .subscribe((data:any)=>{
+      console.log(data);
+      this.statsData = data;
+      // this.articles = data['articles'];
+    });
+  }
 }
