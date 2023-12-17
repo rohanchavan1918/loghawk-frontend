@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     // const token = this.userAuth.authUser(form.value);
 
     if (['Admin','admin'].includes(form.value.userName) && ['Admin','admin'].includes(form.value.password)) {
-      alert('Login Success')
+      // alert('Login Success')
       
       localStorage.setItem('isLoggedIn', '1')
       this.router.navigate(['/dashboard']);
