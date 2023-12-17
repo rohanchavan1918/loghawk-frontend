@@ -12,7 +12,7 @@
 }
 
 .l-bg-blue-dark {
-    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    background: linear-gradient(to right, #373b44, #ff3636) !important;
     color: #fff;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
-    font-size: 110px;
+    font-size: 100px;
 }
 
 .card .card-statistic-3 .card-icon {
@@ -36,7 +36,7 @@
     margin-left: 15px;
     color: #000;
     position: absolute;
-    right: -5px;
+    right: 0;
     top: 20px;
     opacity: 0.1;
 }
